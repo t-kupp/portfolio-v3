@@ -8,6 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
   --color-border: var(--border);
 }
 
@@ -15,13 +16,24 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --foreground-muted: #838383;
     --border: #969696;
   }
 }
 
 /* Font styling  */
+
+html {
+  font-size: clamp(14px, 1vw, 22px);
+}
+
+h1 {
+  font-size: 9rem;
+  line-height: 1;
+}
+
 h4 {
-  font-size: 2.1875rem;
+  font-size: 2rem;
   line-height: 1;
 }
 
@@ -30,10 +42,23 @@ p {
   line-height: 1.5;
 }
 
+/* Mobile h1 scaling  */
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Neue Montreal", Helvetica, sans-serif;
+}
+
+.link {
+  transition-property: color, background-color;
+  transition-duration: 200ms;
 }
 
 /* Import Neue Montreal font  */

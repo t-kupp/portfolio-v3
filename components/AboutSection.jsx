@@ -4,14 +4,16 @@ import SectionHeadline from "./SectionHeadline";
 import Divider from "./Divider";
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
+import { techStackData } from "@/util/techStackData";
 
 export default function AboutSection() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pb-42">
+      <Divider />
       <SectionHeadline title={"About"} />
-      <div className="max-w-2xl self-end">
+      <div className="w-full self-end sm:w-2/3">
         <h4 className="pb-12">
           After relocating from Germany to Sweden in 2023, I'm now dedicated to
           building my future in web development. Currently studying frontend
@@ -29,21 +31,29 @@ export default function AboutSection() {
         </h4>
         <Divider />
         <div
-          className={`${isOpen ? "h-[271px]" : "h-16"} overflow-hidden py-4 transition-[height] duration-300`}
+          className={`${isOpen ? "max-h-[10rem]" : "max-h-[4rem]"} overflow-hidden py-3 transition-[max-height] duration-500`}
         >
           <p
             onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer justify-between"
+            className="flex cursor-pointer items-center justify-between py-1"
+            role="button"
           >
             Techstack <span>{isOpen ? <Minus /> : <Plus />}</span>
           </p>
-          <div className="mt-2">
-            <p>Lorem Ipsum </p>
-            <p>Lorem Ipsum </p>
-            <p>Lorem Ipsum </p>
-            <p>Lorem Ipsum </p>
-            <p>Lorem Ipsum </p>
-            <p>Lorem Ipsum </p>
+          <div className="mt-3 mb-1">
+            <div className="grid grid-cols-3">
+              {techStackData.map((item, index) => {
+                return (
+                  <div
+                    className="text-foreground-muted flex items-center gap-1"
+                    key={index}
+                  >
+                    <i className={item.deviconName + " !text-[1rem]"}></i>
+                    <p className="!text-[1rem]">{item.name}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <Divider />
