@@ -9,7 +9,7 @@ export default function ProjectsSection() {
     <div className="flex flex-col justify-center pb-42">
       <Divider />
       <SectionHeadline title={"Projects"} />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {projectsData.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
@@ -36,7 +36,7 @@ function ProjectCard({ project }) {
     >
       <img
         src={`/images/${project.img}`}
-        className="h-[80%] w-full rounded-t mask-b-from-30% mask-b-to-95% object-cover object-top grayscale group-hover:hidden"
+        className="h-[80%] w-full rounded-t mask-b-from-50% mask-b-to-100% object-cover object-top group-hover:hidden"
         alt=""
       />
       <p className="hidden h-[80%] p-4 group-hover:block">

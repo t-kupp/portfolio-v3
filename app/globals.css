@@ -14,10 +14,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #141414;
     --foreground: #ededed;
-    --foreground-muted: #838383;
-    --border: #969696;
+    --foreground-muted: #a3a3a3;
+    --border: #4b4b4b;
   }
 }
 
@@ -59,6 +59,20 @@ body {
 .link {
   transition-property: color, background-color;
   transition-duration: 200ms;
+}
+
+/* Style for react-clock  */
+.react-clock__hour-hand__body,
+.react-clock__minute-hand__body {
+  background-color: var(--foreground) !important;
+}
+
+.react-clock__second-hand__body {
+  background-color: rgb(192, 0, 0) !important;
+}
+
+.react-clock__face {
+  border: none !important;
 }
 
 /* Import Neue Montreal font  */

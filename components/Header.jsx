@@ -1,19 +1,18 @@
-import { Linkedin } from "lucide-react";
+"use client";
+
+import "react-clock/dist/Clock.css";
+import { useEffect, useState } from "react";
+import Clock from "react-clock";
 
 export default function Header() {
   return (
     <div className="bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1">
-      <div className="mr-auto"></div>
+      <div className="mr-auto flex items-center gap-2"></div>
       <div className="mx-auto">
         <ThemeToggle />
       </div>
-      <div className="ml-auto flex items-center gap-2">
-        <a href="" className="flex items-center">
-          <i class="devicon-linkedin-plain"></i>
-        </a>
-        <a href="" className="flex items-center">
-          <i class="devicon-github-original"></i>
-        </a>
+      <div className="ml-auto">
+        <AnalogClock />
       </div>
     </div>
   );
@@ -33,5 +32,41 @@ function ThemeToggle() {
         <p className="!text-[1rem]">Dark</p>
       </div>
     </button>
+  );
+}
+
+function AnalogClock() {
+  const [value, setValue] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setValue(new Date()), 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  console.log(value.toString());
+
+  return (
+    <div className="flex items-center">
+      <Clock
+        hourHandWidth={1}
+        minuteHandWidth={1}
+        size={48}
+        value={value}
+        renderHourMarks={false}
+        renderMinuteMarks={false}
+      />
+      <p className="hidden w-[9rem] !text-[1rem] sm:block">
+        Stockholm,{" "}
+        {value.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        })}
+      </p>
+    </div>
   );
 }
