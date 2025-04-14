@@ -6,6 +6,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer } from "@react-three/postprocessing";
 import { useRef, useEffect, useState } from "react";
 import { MathUtils } from "three";
+import { Parallax } from "react-scroll-parallax";
 
 const rows = 25;
 const columns = 30;
@@ -38,7 +39,10 @@ export default function DotPlain() {
   }, []);
 
   return (
-    <div className="fixed -z-10 h-screen w-screen opacity-10">
+    <Parallax
+      speed={20}
+      className={`fixed top-0 -z-10 h-[100vh] w-screen opacity-15`}
+    >
       <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
         <color
           attach="background"
@@ -47,7 +51,7 @@ export default function DotPlain() {
         <Dots mouse={mouse} />
         <EffectComposer></EffectComposer>
       </Canvas>
-    </div>
+    </Parallax>
   );
 }
 

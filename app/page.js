@@ -6,7 +6,7 @@ import ProjectsSection from "@/components/ProjectsSections";
 
 export default function Home() {
   return (
-    <div className="px-8">
+    <div className="">
       <DotPlain />
       <HeroSection />
       <AboutSection />

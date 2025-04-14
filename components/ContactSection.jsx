@@ -4,7 +4,7 @@ import SectionHeadline from "./SectionHeadline";
 
 export default function ContactSection() {
   return (
-    <div className="flex flex-col pb-42">
+    <div className="bg-background flex flex-col px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"Contact"} />
       <div>

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
-import ThemeProvider from "@/context/ThemeContext";
+
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "",
@@ -18,10 +19,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={"antialiased transition-colors duration-500"}>
-        <ThemeProvider>
+        <Providers>
           <Header />
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
