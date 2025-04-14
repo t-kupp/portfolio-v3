@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import "./globals.css";
+import ThemeProvider from "@/components/ThemeContext";
 
 export const metadata = {
   title: "",
@@ -17,8 +18,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={"antialiased"}>
-        <Header />
-        {children}
+        <ThemeProvider>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import "react-clock/dist/Clock.css";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
+import { useTheme } from "./ThemeContext";
 
 export default function Header() {
   return (
@@ -19,16 +20,19 @@ export default function Header() {
 }
 
 function ThemeToggle() {
-  const appliedTheme = "dark";
+  const { toggleTheme, theme } = useTheme();
 
   return (
-    <button className="flex items-center gap-2 uppercase">
+    <button
+      onClick={toggleTheme}
+      className="flex cursor-pointer items-center gap-2 uppercase"
+    >
       <div className="flex items-center gap-0.5">
-        <p className="!text-[1rem]">{appliedTheme === "dark" ? "□" : "■"}</p>
+        <p className="!text-[1rem]">{theme === "dark" ? "□" : "■"}</p>
         <p className="!text-[1rem]">Light</p>
       </div>
       <div className="flex items-center gap-0.5">
-        <p className="!text-[1rem]">{appliedTheme === "light" ? "□" : "■"}</p>
+        <p className="!text-[1rem]">{theme === "light" ? "□" : "■"}</p>
         <p className="!text-[1rem]">Dark</p>
       </div>
     </button>
@@ -45,8 +49,6 @@ function AnalogClock() {
       clearInterval(interval);
     };
   }, []);
-
-  console.log(value.toString());
 
   return (
     <div className="flex items-center">

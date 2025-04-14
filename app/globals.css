@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-muted: #555555;
+  --border: #dddddd;
 }
 
 @theme inline {
@@ -12,13 +14,11 @@
   --color-border: var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #141414;
-    --foreground: #ededed;
-    --foreground-muted: #a3a3a3;
-    --border: #4b4b4b;
-  }
+.dark {
+  --background: #141414;
+  --foreground: #ededed;
+  --foreground-muted: #a3a3a3;
+  --border: #4b4b4b;
 }
 
 /* Font styling  */
