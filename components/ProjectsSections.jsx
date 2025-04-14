@@ -32,7 +32,7 @@ function ProjectCard({ project }) {
     <a
       href={project.href}
       target="_blank"
-      className="border-border group hover:text-background hover:bg-foreground bg-[{/images/${project.img}}] flex h-[26rem] flex-col rounded border"
+      className="border-border bg-background group hover:text-background hover:bg-foreground bg-[{/images/${project.img}}] flex h-[26rem] flex-col rounded border"
     >
       <img
         src={`/images/${project.img}`}

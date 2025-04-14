@@ -1,9 +1,10 @@
 "use client";
 
+import { useTheme } from "@/context/ThemeContext";
 import { Instance, Instances, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Noise, EffectComposer } from "@react-three/postprocessing";
-import { useRef, useEffect, useContext } from "react";
+import { EffectComposer } from "@react-three/postprocessing";
+import { useRef, useEffect, useState } from "react";
 import { MathUtils } from "three";
 
 const rows = 25;
@@ -21,6 +22,8 @@ const particles = Array.from({ length: rows * columns }, (_, index) => ({
 export default function DotPlain() {
   const mouse = useRef({ x: 0, y: 0 });
 
+  const { theme } = useTheme();
+
   useEffect(() => {
     const updateMousePosition = (event) => {
       mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -35,9 +38,12 @@ export default function DotPlain() {
   }, []);
 
   return (
-    <div className="min-h-screen w-screen opacity-15 dark:opacity-15">
+    <div className="fixed -z-10 h-screen w-screen opacity-10">
       <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
-        <color attach="background" args={["#1c1c1c"]} />
+        <color
+          attach="background"
+          args={theme === "light" ? ["white"] : ["black"]}
+        />
         <Dots mouse={mouse} />
         <EffectComposer></EffectComposer>
       </Canvas>
@@ -47,7 +53,7 @@ export default function DotPlain() {
 
 function Dots({ mouse }) {
   const ref = useRef();
-  // const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
 
   useFrame((state, delta) => {
     ref.current.rotation.y = MathUtils.damp(
@@ -79,7 +85,7 @@ function Dots({ mouse }) {
     <Instances ref={ref} limit={particles.length}>
       <sphereGeometry args={[1, 6, 6]} />
       <meshBasicMaterial
-        // color={theme === "light" ? "#525252" : "#e2e2e2"}
+        color={theme === "light" ? "black" : "white"}
         roughness={1}
       />
       {particles.map((particle, index) => (

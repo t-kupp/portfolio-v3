@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import "./globals.css";
-import ThemeProvider from "@/components/ThemeContext";
+import ThemeProvider from "@/context/ThemeContext";
 
 export const metadata = {
   title: "",
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
       </head>
-      <body className={"antialiased"}>
+      <body className={"antialiased transition-colors duration-500"}>
         <ThemeProvider>
           <Header />
           {children}

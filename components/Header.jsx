@@ -3,11 +3,11 @@
 import "react-clock/dist/Clock.css";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Header() {
   return (
-    <div className="bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1">
+    <div className="bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1 transition-colors duration-500">
       <div className="mr-auto flex items-center gap-2"></div>
       <div className="mx-auto">
         <ThemeToggle />
@@ -25,7 +25,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex cursor-pointer items-center gap-2 uppercase"
+      className="flex cursor-pointer items-center gap-2"
     >
       <div className="flex items-center gap-0.5">
         <p className="!text-[1rem]">{theme === "dark" ? "□" : "■"}</p>
