@@ -39,19 +39,14 @@ export default function DotPlain() {
   }, []);
 
   return (
-    <Parallax
-      speed={20}
-      className={`fixed top-0 -z-10 h-[100vh] w-screen opacity-15`}
-    >
-      <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
-        <color
-          attach="background"
-          args={theme === "light" ? ["white"] : ["black"]}
-        />
-        <Dots mouse={mouse} />
-        <EffectComposer></EffectComposer>
-      </Canvas>
-    </Parallax>
+    <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
+      <color
+        attach="background"
+        args={theme === "light" ? ["white"] : ["black"]}
+      />
+      <Dots mouse={mouse} />
+      <EffectComposer></EffectComposer>
+    </Canvas>
   );
 }
 

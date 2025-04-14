@@ -4,13 +4,20 @@ import "react-clock/dist/Clock.css";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
 import { useTheme } from "../context/ThemeContext";
+import Link from "next/link";
 
 export default function Header() {
   return (
     <div className="bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1 transition-colors duration-500">
-      <div className="mr-auto flex items-center gap-2"></div>
-      <div className="mx-auto">
+      <div className="mr-auto flex items-center gap-2">
         <ThemeToggle />
+      </div>
+      <div className="mx-auto">
+        <Link href={"/"} className="group">
+          <p className="font-mono !text-[1rem] underline-offset-2 group-hover:underline">
+            jankupper.dev
+          </p>
+        </Link>
       </div>
       <div className="ml-auto">
         <AnalogClock />
@@ -25,7 +32,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex cursor-pointer items-center gap-2"
+      className="flex cursor-pointer items-center gap-2 uppercase"
     >
       <div className="flex items-center gap-0.5">
         <p className="!text-[1rem]">{theme === "dark" ? "□" : "■"}</p>
@@ -44,11 +51,18 @@ function AnalogClock() {
 
   useEffect(() => {
     const interval = setInterval(() => setValue(new Date()), 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
+
+  const getStockholmTime = (date) => {
+    return date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+      timeZone: "Europe/Stockholm",
+    });
+  };
 
   return (
     <div className="flex items-center">
@@ -61,13 +75,7 @@ function AnalogClock() {
         renderMinuteMarks={false}
       />
       <p className="hidden w-[9rem] !text-[1rem] sm:block">
-        Stockholm,{" "}
-        {value.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        })}
+        Stockholm, {getStockholmTime(value)}
       </p>
     </div>
   );

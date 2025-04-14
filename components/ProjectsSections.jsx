@@ -1,64 +1,66 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Divider from "./Divider";
 import SectionHeadline from "./SectionHeadline";
-import { Parallax } from "react-scroll-parallax";
+import { Parallax, ParallaxBanner } from "react-scroll-parallax";
 
 import { projectsData } from "@/util/projectData";
+import LinkButton from "./LinkButton";
 
 export default function ProjectsSection() {
   return (
     <div className="bg-background flex flex-col justify-center px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"Projects"} />
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+      <div className="flex flex-col gap-16 md:gap-32">
         {projectsData.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <ProjectCard
+            key={index}
+            project={project}
+            alignment={index % 2 === 0 ? "left" : "right"}
+          />
         ))}
       </div>
-
-      <a
-        href={"https://github.com/t-kupp/portfolio-v3"}
-        target="_blank"
-        className="link hover:bg-foreground hover:text-background group mx-auto mt-42 flex w-full max-w-xl items-center justify-between px-4 py-2"
-      >
-        <p>View this portfolio project on GitHub</p>
-        <ArrowRight className="transition-[translate] duration-200 group-hover:translate-x-1" />
-      </a>
     </div>
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, alignment }) {
   return (
-    <Parallax speed={Math.random() * 5}>
-      <a
-        href={project.href}
-        target="_blank"
-        className="border-border bg-background group hover:text-background hover:bg-foreground bg-[{/images/${project.img}}] flex h-[26rem] flex-col rounded border"
+    <div className="flex flex-col justify-between md:flex-row md:gap-8">
+      <Parallax
+        speed={4}
+        className={`${alignment == "right" && "md:order-2"} pb-8 md:w-2/3 md:pb-0`}
       >
-        {/* <img
-          src={`/images/${project.img}`}
-          className="h-[80%] w-full rounded-t object-cover object-top grayscale group-hover:hidden"
-          alt=""
-        /> */}
-        <p className="hidden h-[80%] p-4 group-hover:block">
-          {project.description}
-        </p>
-        <div className="mt-auto h-[20%] p-4">
-          <p className="!text-[1rem] !leading-[1]">
-            {project.title}
-            <br />
-            <span className="flex items-center justify-between">
-              {project.year}
-              <span>
-                <ArrowRight className="transition-[translate] duration-200 group-hover:translate-x-1" />
-              </span>
-            </span>
-          </p>
+        <ParallaxBanner
+          className="aspect-[3/2]"
+          layers={[
+            {
+              image: `/images/${project.img}`,
+              speed: 4,
+            },
+          ]}
+        />
+      </Parallax>
+      <div
+        className={`${alignment == "right" && "items-end text-right"} flex w-1/2 flex-col justify-center`}
+      >
+        <h4>{project.title}</h4>
+        <p className="mt-4 !text-[1rem]">{project.year}</p>
+        <p className="">{project.description}</p>
+        <div className="mt-8 flex w-full flex-col items-center gap-8 md:flex-row">
+          <LinkButton
+            title={"Live preview"}
+            href={project.hrefLive}
+            className={"w-full"}
+          />
+          <LinkButton
+            title={"View on GitHub"}
+            href={project.hrefGitHub}
+            className={"w-full"}
+          />
         </div>
-      </a>
-    </Parallax>
+      </div>
+    </div>
   );
 }

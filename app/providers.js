@@ -6,7 +6,7 @@ import { ReactLenis, useLenis } from "lenis/react";
 
 export function Providers({ children }) {
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1, smoothTouch: true }}>
       <ParallaxProvider>
         <ThemeProvider>{children}</ThemeProvider>
       </ParallaxProvider>
