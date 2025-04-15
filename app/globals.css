@@ -12,6 +12,16 @@
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
   --color-border: var(--border);
+  --animate-hscroll: hscroll 20s linear infinite;
+
+  @keyframes hscroll {
+    0% {
+      transform: translateZ(0);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
 }
 
 .dark {

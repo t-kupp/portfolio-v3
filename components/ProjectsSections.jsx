@@ -43,7 +43,7 @@ function ProjectCard({ project, alignment }) {
         />
       </Parallax>
       <div
-        className={`${alignment == "right" && "items-end text-right"} flex w-1/2 flex-col justify-center`}
+        className={`${alignment == "right" && "md:items-end md:text-right"} flex flex-col justify-center md:w-1/2`}
       >
         <h4>{project.title}</h4>
         <p className="mt-4 !text-[1rem]">{project.year}</p>
