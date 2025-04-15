@@ -15,7 +15,7 @@ export default function HorizontalScroller() {
   ));
 
   return (
-    <div className="flex flex-col transition-colors duration-500">
+    <div className="bg-background flex flex-col transition-colors duration-500">
       <Divider />
       <div className="overflow-hidden whitespace-nowrap">
         <div className="select-none">
