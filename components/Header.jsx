@@ -21,11 +21,13 @@ export default function Header() {
 
   return (
     <div
-      className={`${showNavbar ? "translate-y-0" : "translate-y-[-64px]"} bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1 transition-all duration-500`}
+      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} bg-background sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between px-2 transition-all duration-500`}
     >
       <div className="mr-auto flex items-center gap-4">
         <ThemeToggle />
-        <MonoToggle />
+        <div className="hidden sm:block">
+          <MonoToggle />
+        </div>
       </div>
       <div className="mx-auto">
         <button
@@ -33,9 +35,9 @@ export default function Header() {
             setShowNavbar((prev) => !prev);
             setAutoShowNavbar(false);
           }}
-          className={`${showNavbar ? "bg-background text-foreground border-border translate-y-0" : "bg-foreground text-background border-foreground translate-y-[64px]"} flex transform cursor-pointer items-center gap-1 rounded-full border px-3 transition-all duration-500`}
+          className={`${showNavbar ? "bg-background text-foreground border-border translate-y-0" : "bg-foreground text-background border-foreground translate-y-[4rem]"} flex h-8 w-8 transform cursor-pointer items-center justify-center gap-1 rounded-full border transition-all duration-500`}
         >
-          <p>Menu</p> {showNavbar ? <Minus size={20} /> : <Plus size={20} />}
+          {showNavbar ? <Minus size={20} /> : <Plus size={20} />}
         </button>
       </div>
       <div className="ml-auto">
@@ -115,11 +117,11 @@ function AnalogClock({ showNavbar }) {
 
   return (
     <div className="flex items-center">
-      <p className="!font-neueMontreal -mr-2 hidden w-[9rem] !text-[1rem] sm:block">
+      <p className="!font-neueMontreal hidden w-[9rem] !text-[1rem] sm:block">
         Stockholm, {getStockholmTime(value)}
       </p>
       <Clock
-        className={`${showNavbar ? "translate-y-0" : "translate-y-[64px]"} transition-all duration-500`}
+        className={`${showNavbar ? "translate-y-0" : "translate-y-[4rem]"} transition-all duration-500`}
         hourHandWidth={1}
         minuteHandWidth={1}
         size={48}
