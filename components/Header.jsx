@@ -4,20 +4,38 @@ import "react-clock/dist/Clock.css";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
 import { useTheme } from "../context/ThemeContext";
-import Link from "next/link";
+import { Minus, Plus } from "lucide-react";
+import useScrollPercentage from "@/hooks/useScrollPercent";
 
 export default function Header() {
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [autoShowNavbar, setAutoShowNavbar] = useState(true);
+  const { scrollPercent } = useScrollPercentage();
+
+  useEffect(() => {
+    if (scrollPercent > 20 && scrollPercent < 25 && autoShowNavbar) {
+      setShowNavbar(true);
+      setAutoShowNavbar(false);
+    }
+  }, [scrollPercent]);
+
   return (
-    <div className="bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1 transition-colors duration-500">
+    <div
+      className={`${showNavbar ? "translate-y-0" : "translate-y-[-64px]"} bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1 transition-all duration-500`}
+    >
       <div className="mr-auto flex items-center gap-2">
         <ThemeToggle />
       </div>
       <div className="mx-auto">
-        <Link href={"/"} className="group">
-          <p className="font-mono !text-[1rem] underline-offset-2 group-hover:underline">
-            jankupper.dev
-          </p>
-        </Link>
+        <button
+          onClick={() => {
+            setShowNavbar((prev) => !prev);
+            setAutoShowNavbar(false);
+          }}
+          className={`${showNavbar ? "bg-background text-foreground translate-y-0" : "bg-foreground text-background translate-y-[64px]"} flex transform cursor-pointer items-center gap-1 rounded-full px-3 transition-all duration-500`}
+        >
+          <p>Menu</p> {showNavbar ? <Minus size={20} /> : <Plus size={20} />}
+        </button>
       </div>
       <div className="ml-auto">
         <AnalogClock />

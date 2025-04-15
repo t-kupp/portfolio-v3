@@ -57,13 +57,13 @@ function Dots({ mouse }) {
   useFrame((state, delta) => {
     ref.current.rotation.y = MathUtils.damp(
       ref.current.rotation.y,
-      mouse.current.x * 0.05,
+      mouse.current.x * 0.1,
       4,
       delta,
     );
     ref.current.rotation.x = MathUtils.damp(
       ref.current.rotation.x,
-      -mouse.current.y * 0.05,
+      -mouse.current.y * 0.1,
       4,
       delta,
     );
