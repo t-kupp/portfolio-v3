@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <div
-      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} bg-background sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between px-2 transition-all duration-500`}
+      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} bg-background sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between px-4 transition-all duration-500 sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
         <ThemeToggle />
