@@ -13,6 +13,7 @@
   --color-foreground-muted: var(--foreground-muted);
   --color-border: var(--border);
   --animate-hscroll: hscroll 20s linear infinite;
+  --font-neueMontreal: "Neue Montreal", Helvetica, sans-serif;
 
   @keyframes hscroll {
     0% {
@@ -126,5 +127,49 @@ body {
   font-family: "Neue Montreal";
   src: url("/fonts/NeueMontreal-SemiBoldItalic.otf") format("opentype");
   font-weight: 600;
+  font-style: italic;
+}
+
+/* Mono  */
+
+@font-face {
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/NeueMontrealMono-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/NeueMontrealMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/NeueMontrealMono-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/NeueMontrealMono-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/NeueMontrealMono-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Neue Montreal Mono";
+  src: url("/fonts/NeueMontreal-BoldItalic.otf") format("opentype");
+  font-weight: 700;
   font-style: italic;
 }

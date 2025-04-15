@@ -40,7 +40,7 @@ export default function AboutSection() {
           >
             Techstack <span>{isOpen ? <Minus /> : <Plus />}</span>
           </p>
-          <div className="mt-3 mb-1">
+          <div className="mt-3 mb-3">
             <div className="grid grid-cols-3">
               {techStackData.map((item, index) => {
                 return (

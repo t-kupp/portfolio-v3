@@ -23,8 +23,9 @@ export default function Header() {
     <div
       className={`${showNavbar ? "translate-y-0" : "translate-y-[-64px]"} bg-background sticky top-0 z-50 grid min-h-8 w-full grid-cols-3 items-center justify-between px-2 py-1 transition-all duration-500`}
     >
-      <div className="mr-auto flex items-center gap-2">
+      <div className="mr-auto flex items-center gap-4">
         <ThemeToggle />
+        <MonoToggle />
       </div>
       <div className="mx-auto">
         <button
@@ -32,13 +33,13 @@ export default function Header() {
             setShowNavbar((prev) => !prev);
             setAutoShowNavbar(false);
           }}
-          className={`${showNavbar ? "bg-background text-foreground translate-y-0" : "bg-foreground text-background translate-y-[64px]"} flex transform cursor-pointer items-center gap-1 rounded-full px-3 transition-all duration-500`}
+          className={`${showNavbar ? "bg-background text-foreground border-border translate-y-0" : "bg-foreground text-background border-foreground translate-y-[64px]"} flex transform cursor-pointer items-center gap-1 rounded-full border px-3 transition-all duration-500`}
         >
           <p>Menu</p> {showNavbar ? <Minus size={20} /> : <Plus size={20} />}
         </button>
       </div>
       <div className="ml-auto">
-        <AnalogClock />
+        <AnalogClock showNavbar={showNavbar} />
       </div>
     </div>
   );
@@ -50,21 +51,51 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex cursor-pointer items-center gap-2 uppercase"
+      className="flex cursor-pointer items-center gap-4 uppercase"
     >
       <div className="flex items-center gap-0.5">
-        <p className="!text-[1rem]">{theme === "dark" ? "□" : "■"}</p>
+        <p className="!font-neueMontreal !text-[1rem]">
+          {theme === "dark" ? "□" : "■"}
+        </p>
         <p className="!text-[1rem]">Light</p>
       </div>
       <div className="flex items-center gap-0.5">
-        <p className="!text-[1rem]">{theme === "light" ? "□" : "■"}</p>
+        <p className="!font-neueMontreal !text-[1rem]">
+          {theme === "light" ? "□" : "■"}
+        </p>
         <p className="!text-[1rem]">Dark</p>
       </div>
     </button>
   );
 }
 
-function AnalogClock() {
+function MonoToggle() {
+  const [isMono, setIsMono] = useState(false);
+
+  useEffect(() => {
+    const body = document.body;
+
+    if (isMono) {
+      body.style.fontFamily = "'Neue Montreal Mono', monospace";
+    } else {
+      body.style.fontFamily = "";
+    }
+  }, [isMono]);
+
+  return (
+    <button
+      onClick={() => setIsMono((prev) => !prev)}
+      className="flex cursor-pointer items-center gap-4 uppercase"
+    >
+      <div className="flex items-center gap-0.5">
+        <p className="!font-neueMontreal !text-[1rem]">{isMono ? "■" : "□"}</p>
+        <p className="!text-[1rem]">Monospace</p>
+      </div>
+    </button>
+  );
+}
+
+function AnalogClock({ showNavbar }) {
   const [value, setValue] = useState(new Date());
 
   useEffect(() => {
@@ -84,7 +115,11 @@ function AnalogClock() {
 
   return (
     <div className="flex items-center">
+      <p className="!font-neueMontreal -mr-2 hidden w-[9rem] !text-[1rem] sm:block">
+        Stockholm, {getStockholmTime(value)}
+      </p>
       <Clock
+        className={`${showNavbar ? "translate-y-0" : "translate-y-[64px]"} transition-all duration-500`}
         hourHandWidth={1}
         minuteHandWidth={1}
         size={48}
@@ -92,9 +127,6 @@ function AnalogClock() {
         renderHourMarks={false}
         renderMinuteMarks={false}
       />
-      <p className="hidden w-[9rem] !text-[1rem] sm:block">
-        Stockholm, {getStockholmTime(value)}
-      </p>
     </div>
   );
 }
