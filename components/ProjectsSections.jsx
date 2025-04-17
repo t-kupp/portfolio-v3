@@ -46,8 +46,8 @@ function ProjectCard({ project, alignment }) {
         className={`${alignment == "right" && "md:items-end md:text-right"} flex flex-col justify-center md:w-1/2`}
       >
         <h4>{project.title}</h4>
-        <p className="mt-4 !text-[1rem]">{project.year}</p>
-        <p className="">{project.description}</p>
+        <p className="mt-4 !text-[1rem] opacity-85">{project.year}</p>
+        <p className="opacity-85">{project.description}</p>
         <div className="mt-8 flex w-full flex-col items-center gap-8 md:flex-row">
           <LinkButton
             title={"Live preview"}

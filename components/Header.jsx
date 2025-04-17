@@ -21,12 +21,12 @@ export default function Header() {
 
   return (
     <div
-      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} bg-background sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between px-4 transition-all duration-500 sm:px-8`}
+      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} border-border bg-background sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between border-b px-4 transition-all duration-500 sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
-        <ThemeToggle />
+        <ThemeToggleButton />
         <div className="hidden sm:block">
-          <MonoToggle />
+          <MonoToggleButton />
         </div>
       </div>
       <div className="mx-auto">
@@ -47,7 +47,7 @@ export default function Header() {
   );
 }
 
-function ThemeToggle() {
+function ThemeToggleButton() {
   const { toggleTheme, theme } = useTheme();
 
   return (
@@ -71,7 +71,7 @@ function ThemeToggle() {
   );
 }
 
-function MonoToggle() {
+function MonoToggleButton() {
   const [isMono, setIsMono] = useState(false);
 
   useEffect(() => {
