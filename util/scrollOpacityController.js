@@ -2,9 +2,11 @@
 import { useEffect } from "react";
 
 export default function ScrollOpacityController({
-  maxScrollPercent = 50,
-  startOpacity = 0.3,
-  endOpacity = 0, // New parameter for minimum opacity
+  fadeStartPercent = 0, // When to start fading out
+  fadeEndPercent = 50, // When to reach minimum opacity
+  fadeInPercent = 70, // When to start fading back in
+  startOpacity = 0.3, // Starting opacity
+  endOpacity = 0, // Minimum opacity
 }) {
   useEffect(() => {
     // Function to update CSS variable based on scroll
@@ -14,17 +16,32 @@ export default function ScrollOpacityController({
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / Math.max(1, docHeight)) * 100;
 
-      // Calculate the fade range (from startOpacity to endOpacity)
+      let opacity;
+
+      // Calculate the fade range
       const opacityRange = startOpacity - endOpacity;
 
-      // Calculate current opacity based on scroll percentage
-      const currentOpacity =
-        startOpacity -
-        (opacityRange * Math.min(scrollPercent, maxScrollPercent)) /
-          maxScrollPercent;
+      if (scrollPercent <= fadeStartPercent) {
+        // Before fade out begins
+        opacity = startOpacity;
+      } else if (scrollPercent <= fadeEndPercent) {
+        // During fade out
+        const fadeOutProgress =
+          (scrollPercent - fadeStartPercent) /
+          (fadeEndPercent - fadeStartPercent);
+        opacity = startOpacity - opacityRange * fadeOutProgress;
+      } else if (scrollPercent <= fadeInPercent) {
+        // Stay at minimum opacity
+        opacity = endOpacity;
+      } else {
+        // Fade back in
+        const fadeInProgress =
+          (scrollPercent - fadeInPercent) / (100 - fadeInPercent);
+        opacity = endOpacity + opacityRange * fadeInProgress;
+      }
 
-      // Ensure we don't go below endOpacity
-      const opacity = Math.max(endOpacity, currentOpacity);
+      // Ensure opacity stays within desired range
+      opacity = Math.max(endOpacity, Math.min(startOpacity, opacity));
 
       // Set the CSS variable on document root
       document.documentElement.style.setProperty("--scroll-opacity", opacity);
@@ -53,7 +70,13 @@ export default function ScrollOpacityController({
       window.removeEventListener("scroll", handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [maxScrollPercent, startOpacity, endOpacity]);
+  }, [
+    fadeStartPercent,
+    fadeEndPercent,
+    fadeInPercent,
+    startOpacity,
+    endOpacity,
+  ]);
 
   // This component doesn't render anything
   return null;

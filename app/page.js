@@ -14,9 +14,11 @@ export default function Home() {
     <div className="">
       {/* Opacity controller for DotPlain */}
       <ScrollOpacityController
-        maxScrollPercent={20}
+        fadeStartPercent={0}
+        fadeEndPercent={30}
+        fadeInPercent={70}
         startOpacity={0.2}
-        endOpacity={0.00001} // Important to not be 0 to avoid lag on rerender when scrolling up
+        endOpacity={0.001}
       />
 
       <DotPlain />

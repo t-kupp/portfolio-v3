@@ -9,7 +9,7 @@ import LinkButton from "./LinkButton";
 
 export default function ProjectsSection() {
   return (
-    <div className="flex flex-col justify-center px-4 pb-42 transition-colors duration-500 lg:px-8">
+    <div className="bg-background flex flex-col justify-center px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"Projects"} />
       <div className="flex flex-col gap-16 md:gap-32">
@@ -28,22 +28,17 @@ export default function ProjectsSection() {
 function ProjectCard({ project, alignment }) {
   return (
     <div className="flex flex-col justify-between md:flex-row md:gap-8">
-      <Parallax
-        speed={4}
-        className={`${alignment == "right" && "md:order-2"} pb-8 md:w-2/3 md:pb-0`}
-      >
-        <ParallaxBanner
-          className="aspect-[3/2]"
-          layers={[
-            {
-              image: `/images/${project.img}`,
-              speed: 4,
-            },
-          ]}
-        />
-      </Parallax>
       <div
-        className={`${alignment == "right" && "md:items-end md:text-right"} flex flex-col justify-center md:w-1/2`}
+        className={`${alignment == "right" && "md:order-2"} pb-8 md:w-[55%] md:pb-0`}
+      >
+        <img
+          src={`/images/${project.img}`}
+          className={`${alignment == "left" && "ml-auto"} w-full`}
+          alt=""
+        />
+      </div>
+      <div
+        className={`${alignment == "right" && "md:items-end md:text-right"} flex flex-col justify-center md:w-[45%]`}
       >
         <h4>{project.title}</h4>
         <p className="mt-4 !text-[1rem] opacity-85">{project.year}</p>
