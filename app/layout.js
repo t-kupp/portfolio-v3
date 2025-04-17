@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Providers } from "./providers";
 import Footer from "@/components/Footer";
+import Cursor from "@/components/Cursor";
 
 export const metadata = {
   title: "",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={"antialiased transition-colors duration-500"}>
         <Providers>
+          <Cursor />
           <Header />
           {children}
           <Footer />

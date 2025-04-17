@@ -2,6 +2,7 @@
 
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+
 import DotPlain from "@/components/DotPlain";
 import HeroSection from "@/components/HeroSection";
 import HorizontalScroller from "@/components/HorizontalScroller";
@@ -20,9 +21,7 @@ export default function Home() {
         startOpacity={0.2}
         endOpacity={0.001}
       />
-
       <DotPlain />
-
       <HeroSection />
       <HorizontalScroller />
       <AboutSection />

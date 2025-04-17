@@ -77,6 +77,16 @@ body {
   transition-duration: 200ms;
 }
 
+/* Custom cursor settings */
+* {
+  cursor: none !important;
+}
+
+.dark .customCursor {
+  background-color: red;
+  outline-color: red;
+}
+
 /* Style for react-clock  */
 .react-clock__hour-hand__body,
 .react-clock__minute-hand__body {
