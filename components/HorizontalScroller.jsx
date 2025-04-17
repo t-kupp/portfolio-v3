@@ -3,7 +3,7 @@ import SectionHeadline from "./SectionHeadline";
 
 export default function HorizontalScroller() {
   // Change displayed text here
-  let text = "Fullstack.";
+  let text = "Fullstack Developer.";
 
   text = text.split("").map((letter, index) => (
     <span
@@ -19,10 +19,10 @@ export default function HorizontalScroller() {
       <Divider />
       <div className="overflow-hidden whitespace-nowrap">
         <div className="select-none">
-          <h1 className="animate-hscroll inline-block pr-32 !text-[20rem] font-medium md:!text-[40rem]">
+          <h1 className="animate-hscroll inline-block pr-32 !text-[10rem] font-medium md:!text-[20rem]">
             {text}
           </h1>
-          <h1 className="animate-hscroll inline-block pr-32 !text-[20rem] font-medium md:!text-[40rem]">
+          <h1 className="animate-hscroll inline-block pr-32 !text-[10rem] font-medium md:!text-[20rem]">
             {text}
           </h1>
         </div>

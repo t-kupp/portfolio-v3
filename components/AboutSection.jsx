@@ -38,7 +38,8 @@ export default function AboutSection() {
             className="flex cursor-pointer items-center justify-between py-1"
             role="button"
           >
-            Techstack <span>{isOpen ? <Minus /> : <Plus />}</span>
+            Technologies I work with{" "}
+            <span>{isOpen ? <Minus /> : <Plus />}</span>
           </p>
           <div className="mt-3 mb-3">
             <div className="grid grid-cols-3">

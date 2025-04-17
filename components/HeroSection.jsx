@@ -9,7 +9,6 @@ export default function HeroSection() {
           <br />
           Kupper
         </h1>
-        <p>Fullstack Developer</p>
       </div>
     </div>
   );
