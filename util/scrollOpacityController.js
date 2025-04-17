@@ -4,6 +4,7 @@ import { useEffect } from "react";
 export default function ScrollOpacityController({
   maxScrollPercent = 50,
   startOpacity = 0.3,
+  endOpacity = 0, // New parameter for minimum opacity
 }) {
   useEffect(() => {
     // Function to update CSS variable based on scroll
@@ -13,11 +14,17 @@ export default function ScrollOpacityController({
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / Math.max(1, docHeight)) * 100;
 
-      // Calculate opacity (starting at startOpacity, fading to 0 at maxScrollPercent)
-      const opacity = Math.max(
-        0,
-        startOpacity - (startOpacity * scrollPercent) / maxScrollPercent,
-      );
+      // Calculate the fade range (from startOpacity to endOpacity)
+      const opacityRange = startOpacity - endOpacity;
+
+      // Calculate current opacity based on scroll percentage
+      const currentOpacity =
+        startOpacity -
+        (opacityRange * Math.min(scrollPercent, maxScrollPercent)) /
+          maxScrollPercent;
+
+      // Ensure we don't go below endOpacity
+      const opacity = Math.max(endOpacity, currentOpacity);
 
       // Set the CSS variable on document root
       document.documentElement.style.setProperty("--scroll-opacity", opacity);
@@ -46,7 +53,7 @@ export default function ScrollOpacityController({
       window.removeEventListener("scroll", handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [maxScrollPercent, startOpacity]);
+  }, [maxScrollPercent, startOpacity, endOpacity]);
 
   // This component doesn't render anything
   return null;

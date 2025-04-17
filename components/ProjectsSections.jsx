@@ -9,7 +9,7 @@ import LinkButton from "./LinkButton";
 
 export default function ProjectsSection() {
   return (
-    <div className="bg-background flex flex-col justify-center px-4 pb-42 transition-colors duration-500 lg:px-8">
+    <div className="flex flex-col justify-center px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"Projects"} />
       <div className="flex flex-col gap-16 md:gap-32">

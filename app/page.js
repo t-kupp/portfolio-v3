@@ -6,18 +6,21 @@ import DotPlain from "@/components/DotPlain";
 import HeroSection from "@/components/HeroSection";
 import HorizontalScroller from "@/components/HorizontalScroller";
 import ProjectsSection from "@/components/ProjectsSections";
+import ScrollOpacityController from "@/util/scrollOpacityController";
 import { Parallax } from "react-scroll-parallax";
 
 export default function Home() {
   return (
     <div className="">
-      <Parallax
-        translateY={[-20, 0]}
-        shouldAlwaysCompleteAnimation={true}
-        className={`fixed top-0 -z-10 h-[130vh] w-screen opacity-15`}
-      >
-        <DotPlain />
-      </Parallax>
+      {/* Opacity controller for DotPlain */}
+      <ScrollOpacityController
+        maxScrollPercent={20}
+        startOpacity={0.2}
+        endOpacity={0.00001} // Important to not be 0 to avoid lag on rerender when scrolling up
+      />
+
+      <DotPlain />
+
       <HeroSection />
       <HorizontalScroller />
       <AboutSection />

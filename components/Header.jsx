@@ -9,15 +9,6 @@ import useScrollPercentage from "@/hooks/useScrollPercent";
 
 export default function Header() {
   const [showNavbar, setShowNavbar] = useState(false);
-  const [autoShowNavbar, setAutoShowNavbar] = useState(true);
-  const { scrollPercent } = useScrollPercentage();
-
-  useEffect(() => {
-    if (scrollPercent > 20 && scrollPercent < 25 && autoShowNavbar) {
-      setShowNavbar(true);
-      setAutoShowNavbar(false);
-    }
-  }, [scrollPercent]);
 
   return (
     <div
@@ -33,7 +24,6 @@ export default function Header() {
         <button
           onClick={() => {
             setShowNavbar((prev) => !prev);
-            setAutoShowNavbar(false);
           }}
           className={`${showNavbar ? "bg-background text-foreground border-border translate-y-0" : "bg-foreground text-background border-foreground translate-y-[4rem]"} flex h-8 w-8 transform cursor-pointer items-center justify-center gap-1 rounded-full border transition-all duration-500`}
         >

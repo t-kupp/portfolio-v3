@@ -39,14 +39,20 @@ export default function DotPlain() {
   }, []);
 
   return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
-      <color
-        attach="background"
-        args={theme === "light" ? ["white"] : ["black"]}
-      />
-      <Dots mouse={mouse} />
-      <EffectComposer></EffectComposer>
-    </Canvas>
+    <Parallax
+      translateY={[-20, 0]}
+      shouldAlwaysCompleteAnimation={true}
+      className={`fixed top-0 -z-10 h-[130vh] w-screen opacity-[var(--scroll-opacity)]`}
+    >
+      <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
+        <color
+          attach="background"
+          args={theme === "light" ? ["white"] : ["black"]}
+        />
+        <Dots mouse={mouse} />
+        <EffectComposer></EffectComposer>
+      </Canvas>
+    </Parallax>
   );
 }
 
