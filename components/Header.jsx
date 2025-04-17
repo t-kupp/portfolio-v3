@@ -5,31 +5,19 @@ import { useEffect, useState } from "react";
 import Clock from "react-clock";
 import { useTheme } from "../context/ThemeContext";
 import { Minus, Plus } from "lucide-react";
-import useScrollPercentage from "@/hooks/useScrollPercent";
 
 export default function Header() {
-  const [showNavbar, setShowNavbar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   return (
     <div
-      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} border-border bg-background sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between border-b px-4 transition-all duration-500 sm:px-8`}
+      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} sticky top-0 z-50 grid h-[4rem] w-full grid-cols-3 items-center justify-between !bg-transparent px-4 !text-white mix-blend-difference transition-all duration-500 sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
         <ThemeToggleButton />
-        <div className="hidden sm:block">
-          <MonoToggleButton />
-        </div>
+        <MonoToggleButton />
       </div>
-      <div className="mx-auto">
-        <button
-          onClick={() => {
-            setShowNavbar((prev) => !prev);
-          }}
-          className={`${showNavbar ? "bg-background text-foreground border-border translate-y-0" : "bg-foreground text-background border-foreground translate-y-[4rem]"} flex h-8 w-8 transform cursor-pointer items-center justify-center gap-1 rounded-full border transition-all duration-500`}
-        >
-          {showNavbar ? <Minus size={20} /> : <Plus size={20} />}
-        </button>
-      </div>
+      <div className="mx-auto">{/* Middle part of the navbar  */}</div>
       <div className="ml-auto">
         <AnalogClock showNavbar={showNavbar} />
       </div>
@@ -114,7 +102,7 @@ function AnalogClock({ showNavbar }) {
         className={`${showNavbar ? "translate-y-0" : "translate-y-[4rem]"} transition-all duration-500`}
         hourHandWidth={1}
         minuteHandWidth={1}
-        size={48}
+        size={"5rem"}
         value={value}
         renderHourMarks={false}
         renderMinuteMarks={false}

@@ -32,6 +32,10 @@
   --border: #4b4b4b;
 }
 
+.isolate {
+  isolation: isolate;
+}
+
 /* Font styling  */
 
 html {
@@ -76,11 +80,22 @@ body {
 /* Style for react-clock  */
 .react-clock__hour-hand__body,
 .react-clock__minute-hand__body {
-  background-color: var(--foreground) !important;
+  transition: backgroundColor;
+  transition-duration: 500ms;
+  background-color: white !important;
 }
 
 .react-clock__second-hand__body {
-  background-color: rgb(192, 0, 0) !important;
+  transition: backgroundColor;
+  transition-duration: 500ms;
+  background-color: cyan !important;
+}
+
+/* dark mode color for seconds hand */
+.dark .react-clock__second-hand__body {
+  transition: backgroundColor;
+  transition-duration: 500ms;
+  background-color: red !important;
 }
 
 .react-clock__face {
