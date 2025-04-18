@@ -3,7 +3,7 @@ import SectionHeadline from "./SectionHeadline";
 
 export default function HorizontalScroller() {
   // Change displayed text here
-  let text = "Fullstack Developer.";
+  let text = "Jan-Thorge Kupper";
 
   text = text.split("").map((letter, index) => (
     <span
@@ -15,17 +15,14 @@ export default function HorizontalScroller() {
   ));
 
   return (
-    <div className="bg-background flex flex-col transition-colors duration-500">
-      <Divider />
-      <div className="overflow-hidden whitespace-nowrap">
-        <div className="select-none">
-          <h1 className="animate-hscroll inline-block pr-32 !text-[10rem] font-medium md:!text-[20rem]">
-            {text}
-          </h1>
-          <h1 className="animate-hscroll inline-block pr-32 !text-[10rem] font-medium md:!text-[20rem]">
-            {text}
-          </h1>
-        </div>
+    <div className="flex flex-col transition-colors duration-500">
+      <div className="overflow-hidden py-8 whitespace-nowrap select-none">
+        <h1 className="animate-hscroll inline-block pr-24 !text-[10rem] font-bold uppercase md:!text-[15rem]">
+          {text}
+        </h1>
+        <h1 className="animate-hscroll inline-block pr-24 !text-[10rem] font-bold uppercase md:!text-[15rem]">
+          {text}
+        </h1>
       </div>
     </div>
   );

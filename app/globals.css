@@ -79,7 +79,7 @@ body {
 
 /* Custom cursor settings */
 * {
-  /* cursor: none !important; */
+  cursor: none !important;
 }
 
 /* Style for react-clock  */
