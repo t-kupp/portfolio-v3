@@ -21,7 +21,7 @@ export default function Home() {
         startOpacity={0.2}
         endOpacity={0.001}
       />
-      <DotPlain />
+      {/* <DotPlain /> */}
       <HeroSection />
       <HorizontalScroller />
       <AboutSection />

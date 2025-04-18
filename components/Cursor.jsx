@@ -69,7 +69,7 @@ export default function Cursor() {
         const deltaTime = time - previousTimeRef.current;
         const lerp = (start, end, factor) =>
           start * (1 - factor) + end * factor;
-        const lerpFactor = Math.min((0.5 * deltaTime) / 16, 1);
+        const lerpFactor = Math.min((0.8 * deltaTime) / 16, 1);
 
         setRenderedPos((prev) => ({
           x: lerp(prev.x, mouse.x, lerpFactor),
