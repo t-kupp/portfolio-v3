@@ -14,15 +14,16 @@ export default function Home() {
   return (
     <div className="">
       {/* Opacity controller for DotPlain */}
-      {/* <ScrollOpacityController
+      <ScrollOpacityController
         fadeStartPercent={0}
         fadeEndPercent={20}
         fadeInPercent={70}
         startOpacity={0.2}
         endOpacity={0.001}
-      /> */}
+      />
       {/* <DotPlain /> */}
       <HeroSection />
+      <HorizontalScroller />
       <AboutSection />
       <ProjectsSection />
       <ContactSection />
