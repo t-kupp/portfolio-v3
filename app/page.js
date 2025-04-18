@@ -16,7 +16,7 @@ export default function Home() {
       {/* Opacity controller for DotPlain */}
       <ScrollOpacityController
         fadeStartPercent={0}
-        fadeEndPercent={30}
+        fadeEndPercent={20}
         fadeInPercent={70}
         startOpacity={0.2}
         endOpacity={0.001}

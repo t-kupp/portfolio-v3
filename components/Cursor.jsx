@@ -89,7 +89,7 @@ export default function Cursor() {
       style={{
         transform: `translate3d(${renderedPos.x}px, ${renderedPos.y}px, 0px)`,
       }}
-      className={`${isHoveringClickable ? "customCursor h-6 w-6 bg-cyan-400 outline-offset-0 outline-cyan-400" : "h-2 w-2 bg-white outline-offset-4 outline-white"} pointer-events-none fixed top-0 left-0 z-50 -translate-1/2 rounded-full mix-blend-difference outline transition-[width,height,background-color,outline-offset,outline-color] duration-200`}
+      className={`${isHoveringClickable ? "customCursor h-6 w-6 outline-offset-0" : "h-2 w-2 outline-offset-4"} pointer-events-none fixed top-0 left-0 z-[9999] hidden -translate-1/2 rounded-full bg-white mix-blend-difference outline outline-white transition-[width,height,background-color,outline-offset,outline-color] duration-200 sm:block`}
     />
   );
 }

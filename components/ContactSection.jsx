@@ -10,7 +10,7 @@ export default function ContactSection() {
       <SectionHeadline title={"Contact"} />
       <div className="">
         <h1 className="pb-12">Let's talk.</h1>
-        <div className="flex max-w-sm flex-col">
+        <div className="flex w-full flex-col sm:max-w-sm">
           <LinkButton
             title={"LinkedIn"}
             href={"https://www.linkedin.com/in/jan-thorge-kupper/"}
