@@ -4,14 +4,18 @@ import "react-clock/dist/Clock.css";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
 import { useTheme } from "../context/ThemeContext";
-import { Minus, Plus } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function Header() {
-  const [showNavbar, setShowNavbar] = useState(true);
-
   return (
-    <div
-      className={`${showNavbar ? "translate-y-0" : "translate-y-[-4rem]"} sticky top-0 z-50 grid w-full grid-cols-3 items-center justify-between !bg-transparent px-4 !text-white mix-blend-difference transition-all duration-500 sm:px-8`}
+    <motion.div
+      initial={{ y: -50 }}
+      animate={{ y: 0 }}
+      transition={{
+        delay: 1.8,
+        duration: 0.5,
+      }}
+      className={`sticky top-0 z-50 grid w-full translate-y-0 grid-cols-3 items-center justify-between !bg-transparent px-4 !text-white mix-blend-difference transition-all duration-500 sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
         <ThemeToggleButton />
@@ -19,9 +23,9 @@ export default function Header() {
       </div>
       <div className="mx-auto">{/* Middle part of the navbar  */}</div>
       <div className="ml-auto">
-        <AnalogClock showNavbar={showNavbar} />
+        <AnalogClock />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -75,7 +79,7 @@ function MonoToggleButton() {
   );
 }
 
-function AnalogClock({ showNavbar }) {
+function AnalogClock() {
   const [value, setValue] = useState(new Date());
 
   useEffect(() => {
@@ -99,7 +103,7 @@ function AnalogClock({ showNavbar }) {
         Stockholm, {getStockholmTime(value)}
       </p>
       <Clock
-        className={`${showNavbar ? "translate-y-0" : "translate-y-[4rem]"} transition-all duration-500`}
+        className={`transition-all duration-500`}
         hourHandWidth={1}
         minuteHandWidth={1}
         size={"5rem"}
