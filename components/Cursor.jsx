@@ -9,7 +9,7 @@ export default function Cursor() {
   const previousTimeRef = useRef();
   const lastMousePosRef = useRef({ x: 0, y: 0 });
 
-  // Improved clickable detection
+  // Clickable detection
   const isClickable = (elements) => {
     const interactiveSelectors = [
       "a[href]",
@@ -62,32 +62,10 @@ export default function Cursor() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Animation loop
-  useEffect(() => {
-    const animate = (time) => {
-      if (previousTimeRef.current !== undefined) {
-        const deltaTime = time - previousTimeRef.current;
-        const lerp = (start, end, factor) =>
-          start * (1 - factor) + end * factor;
-        const lerpFactor = Math.min((0.8 * deltaTime) / 16, 1);
-
-        setRenderedPos((prev) => ({
-          x: lerp(prev.x, mouse.x, lerpFactor),
-          y: lerp(prev.y, mouse.y, lerpFactor),
-        }));
-      }
-      previousTimeRef.current = time;
-      requestRef.current = requestAnimationFrame(animate);
-    };
-
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
-  }, [mouse]);
-
   return (
     <div
       style={{
-        transform: `translate3d(${renderedPos.x}px, ${renderedPos.y}px, 0px)`,
+        transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0px)`,
       }}
       className={`${isHoveringClickable ? "customCursor h-6 w-6 outline-offset-0" : "h-2 w-2 outline-offset-4"} pointer-events-none fixed top-0 left-0 z-[9999] hidden -translate-1/2 rounded-full bg-white mix-blend-difference outline outline-white transition-[width,height,background-color,outline-offset,outline-color] duration-200 sm:block`}
     />

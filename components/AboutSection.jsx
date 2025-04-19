@@ -10,7 +10,7 @@ export default function AboutSection() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col px-4 pb-42 transition-colors duration-500 lg:px-8">
+    <div className="bg-background flex flex-col px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"About"} />
       <div className="w-full self-end sm:w-2/3">

@@ -107,6 +107,19 @@ body {
   border: none !important;
 }
 
+/* Selection text and background color  */
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--background);
+  background: var(--foreground);
+}
+
+::selection {
+  color: var(--background);
+  background: var(--foreground);
+}
+
 /* Import Neue Montreal font  */
 @font-face {
   font-family: "Neue Montreal";

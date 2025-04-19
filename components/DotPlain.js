@@ -44,7 +44,7 @@ export default function DotPlain() {
     <Parallax
       translateY={[-20, 0]}
       shouldAlwaysCompleteAnimation={true}
-      className={`fixed top-0 -z-10 h-[130vh] w-screen opacity-[var(--scroll-opacity)]`}
+      className={`fixed top-0 -z-10 h-[130vh] w-screen opacity-20`}
     >
       <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
         <color
