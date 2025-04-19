@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function Cursor() {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [mouse, setMouse] = useState({ x: -50, y: -50 });
   const [renderedPos, setRenderedPos] = useState({ x: 0, y: 0 });
   const [isHoveringClickable, setIsHoveringClickable] = useState(false);
   const requestRef = useRef();
