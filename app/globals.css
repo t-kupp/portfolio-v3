@@ -87,13 +87,13 @@ body {
 .react-clock__minute-hand__body {
   transition: backgroundColor;
   transition-duration: 500ms;
-  background-color: white !important;
+  background-color: var(--foreground) !important;
 }
 
 .react-clock__second-hand__body {
   transition: backgroundColor;
   transition-duration: 500ms;
-  background-color: cyan !important;
+  background-color: red !important;
 }
 
 /* dark mode color for seconds hand */

@@ -33,7 +33,7 @@ function ProjectCard({ project, alignment }) {
       >
         <img
           src={`/images/${project.img}`}
-          className={`${alignment == "left" && "ml-auto"} w-full`}
+          className={`${alignment == "left" && "ml-auto"} w-full rounded-lg`}
           alt=""
         />
       </div>

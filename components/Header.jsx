@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Clock from "react-clock";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -15,11 +16,14 @@ export default function Header() {
         delay: 1.8,
         duration: 0.5,
       }}
-      className={`sticky top-0 z-50 grid w-full translate-y-0 grid-cols-3 items-center justify-between !bg-transparent px-4 !text-white mix-blend-difference transition-all duration-500 sm:px-8`}
+      className={`bg-background sticky top-0 z-50 grid w-full translate-y-0 grid-cols-3 items-center justify-between px-4 transition-all duration-500 sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
+        {/* <MonoToggleButton /> */}
+        {/* <Link href={"/"}>
+          <p className="!font-mono !text-[1rem]">{`<jankupper.dev />`}</p>
+        </Link> */}
         <ThemeToggleButton />
-        <MonoToggleButton />
       </div>
       <div className="mx-auto">{/* Middle part of the navbar  */}</div>
       <div className="ml-auto">
@@ -106,7 +110,7 @@ function AnalogClock() {
         className={`transition-all duration-500`}
         hourHandWidth={1}
         minuteHandWidth={1}
-        size={"5rem"}
+        size={"3.5rem"}
         value={value}
         renderHourMarks={false}
         renderMinuteMarks={false}
