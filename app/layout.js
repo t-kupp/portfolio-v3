@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata = {
   title: "",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className={"antialiased transition-colors duration-500"}>
         <Providers>
           <Cursor />
+          <LoadingScreen />
           <Header />
           {children}
           <Footer />
