@@ -57,31 +57,31 @@ function ThemeToggleButton() {
   );
 }
 
-function MonoToggleButton() {
-  const [isMono, setIsMono] = useState(false);
+// function MonoToggleButton() {
+//   const [isMono, setIsMono] = useState(false);
 
-  useEffect(() => {
-    const body = document.body;
+//   useEffect(() => {
+//     const body = document.body;
 
-    if (isMono) {
-      body.style.fontFamily = "'Neue Montreal Mono', monospace";
-    } else {
-      body.style.fontFamily = "";
-    }
-  }, [isMono]);
+//     if (isMono) {
+//       body.style.fontFamily = "'Neue Montreal Mono', monospace";
+//     } else {
+//       body.style.fontFamily = "";
+//     }
+//   }, [isMono]);
 
-  return (
-    <button
-      onClick={() => setIsMono((prev) => !prev)}
-      className="flex cursor-pointer items-center gap-4 uppercase"
-    >
-      <div className="flex items-center gap-0.5">
-        <p className="!font-neueMontreal !text-[1rem]">{isMono ? "■" : "□"}</p>
-        <p className="!text-[1rem]">Monospace</p>
-      </div>
-    </button>
-  );
-}
+//   return (
+//     <button
+//       onClick={() => setIsMono((prev) => !prev)}
+//       className="flex cursor-pointer items-center gap-4 uppercase"
+//     >
+//       <div className="flex items-center gap-0.5">
+//         <p className="!font-neueMontreal !text-[1rem]">{isMono ? "■" : "□"}</p>
+//         <p className="!text-[1rem]">Monospace</p>
+//       </div>
+//     </button>
+//   );
+// }
 
 function AnalogClock() {
   const [value, setValue] = useState(new Date());
