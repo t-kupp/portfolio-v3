@@ -47,12 +47,12 @@ function ProjectCard({ project, alignment }) {
           <LinkButton
             title={"Live preview"}
             href={project.hrefLive}
-            className={"w-full"}
+            className={"w-full text-nowrap"}
           />
           <LinkButton
             title={"View on GitHub"}
             href={project.hrefGitHub}
-            className={"w-full"}
+            className={"w-full text-nowrap"}
           />
         </div>
       </div>
