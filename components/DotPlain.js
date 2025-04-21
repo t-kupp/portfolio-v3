@@ -42,7 +42,7 @@ export default function DotPlain() {
       <Canvas camera={{ position: [0, 0, 13], fov: 50 }} dpr={[1, 2]}>
         <color
           attach="background"
-          args={theme === "light" ? ["white"] : ["black"]}
+          args={theme === "light" ? ["white"] : ["#141414"]}
         />
 
         <Dots mouse={mouse} />
