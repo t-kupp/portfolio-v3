@@ -19,7 +19,7 @@ export default function Home() {
           duration: 0.6,
         }}
       >
-        <DotPlain />
+        {/* <DotPlain /> */}
       </motion.div>
       <HeroSection />
       <HorizontalScroller />
