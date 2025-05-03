@@ -3,7 +3,7 @@
 import SectionHeadline from "./SectionHeadline";
 import Divider from "./Divider";
 import { useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { Dot, Minus, Plus } from "lucide-react";
 import { techStackData } from "@/util/techStackData";
 
 export default function AboutSection() {
@@ -15,19 +15,28 @@ export default function AboutSection() {
       <SectionHeadline title={"About"} />
       <div className="w-full self-end sm:w-2/3">
         <h4 className="pb-12">
-          After relocating from Germany to Sweden in 2023, I'm now dedicated to
-          building my future in web development. Currently studying frontend
-          development at Chas Academy in Stockholm, where I build modern web
-          applications with JavaScript, React, Next.js, and Tailwind.
+          I believe in two core principles:
           <br />
           <br />
-          Beyond the frontend, I'm also diving into backend development with
-          Next.js API routes, Express.js, and databases like MySQL and Supabase
-          (PostgreSQL) to build fullstack solutions.
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center italic">
+              <Dot size={32} /> "Teamwork makes the dream work"
+            </span>
+            <span className="flex items-center italic">
+              <Dot size={32} /> "Never stop learning"
+            </span>
+          </div>
+          <br />
+          For me, great work comes from a balance of collaboration and autonomy,
+          anchored by clear communication. I'm always trying to learn as much as
+          possible in a collaborative environment and greatly value receiving
+          and providing feedback, while also enjoying the challenge of
+          independent problem-solving to deliver results.
           <br />
           <br />
-          I'm very passionate about web development, always eager to learn more
-          and looking for opportunities to improve my skills.
+          What I love about web development is the combination of creative
+          freedom to develop clean, elegant design while simultaneously being
+          able to solve logic-based challenges through coding.
         </h4>
         <Divider />
         <div
