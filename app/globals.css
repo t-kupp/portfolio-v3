@@ -78,8 +78,11 @@ body {
 }
 
 /* Custom cursor settings */
-* {
-  cursor: none !important;
+
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
 }
 
 /* Style for react-clock  */
