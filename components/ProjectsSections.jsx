@@ -2,8 +2,6 @@
 
 import Divider from "./Divider";
 import SectionHeadline from "./SectionHeadline";
-import { Parallax, ParallaxBanner } from "react-scroll-parallax";
-
 import { projectsData } from "@/util/projectData";
 import LinkButton from "./LinkButton";
 
@@ -12,6 +10,11 @@ export default function ProjectsSection() {
     <div className="bg-background flex flex-col justify-center px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"Projects"} />
+      <LinkButton
+        title={"View this portfolio website on GitHub"}
+        href={"https://github.com/t-kupp/portfolio-v3"}
+        className={"border-foreground-muted mx-auto mb-16 border"}
+      />
       <div className="flex flex-col gap-16 md:gap-32">
         {projectsData.map((project, index) => (
           <ProjectCard

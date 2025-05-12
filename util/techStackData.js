@@ -1,38 +1,46 @@
-export const techStackData = [
-  {
-    name: "HTML5",
-    deviconName: "devicon-html5-plain",
-  },
-  {
-    name: "CSS3",
-    deviconName: "devicon-css3-plain",
-  },
-  {
-    name: "Javascript",
-    deviconName: "devicon-javascript-plain",
-  },
-  {
-    name: "React",
-    deviconName: "devicon-react-original",
-  },
-  {
-    name: "Next.js",
-    deviconName: "devicon-nextjs-plain",
-  },
-  {
-    name: "Tailwind",
-    deviconName: "devicon-tailwindcss-original",
-  },
-  {
-    name: "Express.js",
-    deviconName: "devicon-express-original",
-  },
-  {
-    name: "MySQL",
-    deviconName: "devicon-mysql-original",
-  },
-  {
-    name: "Supabase",
-    deviconName: "devicon-supabase-plain",
-  },
-];
+export const techStackData = {
+  frontend: [
+    {
+      name: "HTML5 & CSS3",
+      deviconName: "devicon-html5-plain",
+    },
+    {
+      name: "Next.js",
+      deviconName: "devicon-nextjs-plain",
+    },
+    {
+      name: "React",
+      deviconName: "devicon-react-original",
+    },
+    {
+      name: "Tailwind",
+      deviconName: "devicon-tailwindcss-original",
+    },
+  ],
+
+  backend: [
+    {
+      name: "Next.js (App Router)",
+      deviconName: "devicon-nextjs-plain",
+    },
+    {
+      name: "Express.js",
+      deviconName: "devicon-express-original",
+    },
+    {
+      name: "PostgreSQL",
+      deviconName: "devicon-postgresql-plain",
+    },
+  ],
+
+  languages: [
+    {
+      name: "JavaScript (ES6+)",
+      deviconName: "devicon-javascript-plain",
+    },
+    // {
+    //   name: "TypeScript",
+    //   deviconName: "devicon-typescript-plain",
+    // },
+  ],
+};
