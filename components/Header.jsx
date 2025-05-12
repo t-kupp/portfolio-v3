@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 export default function Header() {
   return (
     <motion.div
-      initial={{ y: -50 }}
+      initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{
         delay: 1.8,
