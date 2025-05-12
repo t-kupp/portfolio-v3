@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={"antialiased transition-colors duration-500"}>
+        <Toaster position="top-center" />
         <Providers>
           <Cursor />
           <LoadingScreen />

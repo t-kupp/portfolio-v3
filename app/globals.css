@@ -58,6 +58,14 @@ p {
   line-height: 1.5;
 }
 
+/* Contact form styling  */
+input,
+textarea,
+label {
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
 /* Mobile h1 scaling  */
 
 @media (max-width: 640px) {
