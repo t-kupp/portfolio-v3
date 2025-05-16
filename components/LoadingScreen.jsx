@@ -17,7 +17,7 @@ export default function LoadingScreen() {
         initial={{ y: 0 }}
         animate={{ y: "-100%" }}
         transition={{ delay: 1, duration: 0.5, ease: "easeInOut" }}
-        className="fixed top-[100vh] left-0 h-screen w-screen bg-white mix-blend-difference"
+        className="fixed top-[100vh] left-0 h-screen w-screen border-b border-black bg-white mix-blend-difference"
       />
     </motion.div>
   );

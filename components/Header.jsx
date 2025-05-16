@@ -12,7 +12,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{
-        delay: 1.8,
+        delay: 1.5,
         duration: 0.5,
       }}
       className={`text-foreground bg-background sticky top-0 z-50 grid w-full translate-y-0 grid-cols-2 items-center justify-between px-4 py-1 transition-all duration-500 sm:px-8`}
