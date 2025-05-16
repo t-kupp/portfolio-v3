@@ -1,10 +1,11 @@
 import Divider from "./Divider";
 import SectionHeadline from "./SectionHeadline";
 import ContactForm from "./ContactForm";
+import Copyright from "./Copyright";
 
 export default function ContactSection() {
   return (
-    <div className="bg-background flex flex-col px-4 pb-42 transition-colors duration-500 lg:px-8">
+    <div className="bg-background relative flex flex-col px-4 pb-42 transition-colors duration-500 lg:px-8">
       <Divider />
       <SectionHeadline title={"Contact"} />
 
@@ -21,6 +22,9 @@ export default function ContactSection() {
         </a>
       </div>
       <ContactForm />
+      <div className="absolute right-2 bottom-1">
+        <Copyright />
+      </div>
     </div>
   );
 }

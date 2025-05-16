@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

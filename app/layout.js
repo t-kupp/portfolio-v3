@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
           <LoadingScreen />
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
         <Analytics />
       </body>
