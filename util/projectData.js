@@ -1,29 +1,51 @@
 export const projectsData = [
   {
+    title: "Ansökningshjälpen",
+    description:
+      "An AI-powered tool developed in cooperation with Lidol, a Gothenburg-based organization focused on accessible communication systems. It is designed to assist people with disabilities in navigating the application process for workplace accommodations (arbetshjälpmedel) through Försäkringskassan. The solution provides step-by-step guidance for accurately completing application forms and supports applicants in preparing for interviews with Försäkringskassan representatives. The goal is to reduce rejection rates by offering clear and accessible support throughout the process.",
+    year: "2025",
+    img: "lidol.png",
+    hrefLive: "",
+    technologies: [
+      "nextjs",
+      "react",
+      "tailwind",
+      "express",
+      "postgresql",
+      "supabase",
+      "gpt-4.1",
+    ],
+    hrefGitHub: "https://github.com/zarhaselene/chas_challenge",
+    comingSoon: true,
+  },
+  {
     title: "Big Stacks",
     description:
       "Developed an online banking prototype using Next.js App Router (frontend & backend) with Supabase for database management. Features include account creation, money transfers, token verification, real-time balance tracking, and transaction history visualization.",
     year: "2025",
     img: "bigstacks.png",
     hrefLive: "https://chas-banking-site.vercel.app/",
+    technologies: ["nextjs", "react", "tailwind", "postgresql", "supabase"],
     hrefGitHub: "https://github.com/t-kupp/chas-banking-site",
   },
   {
     title: "ChasGPT",
     description:
-      "An AI-driven chatbot modeled after ChatGPT, using Google's Gemini AI. I learned how to integrate an AI API for real-time interaction.",
+      "An AI-driven chatbot modeled after ChatGPT, using Google's Gemini AI teaching me how to integrate an AI API for real-time interaction. Features include a simple, sleek design and being able to go back to previous conversations through the side menu.",
     year: "2025",
     img: "chasgpt.png",
     hrefLive: "https://chas-chasgpt.vercel.app/",
+    technologies: ["nextjs", "react", "tailwind", "gemini"],
     hrefGitHub: "https://github.com/t-kupp/chas-chasgpt",
   },
   {
     title: "MediaDB",
     description:
-      "Developed a database for movies and TV series with search and tracking features. This project taught me how to use dynamic routing and improved my understanding of website architecture.",
+      "Developed a database for movies and TV series with search and tracking features as part of a group project. I learned how to use dynamic routing and improved my understanding of website architecture.",
     year: "2025",
     img: "mediadb.png",
     hrefLive: "https://chas-media-db.vercel.app/",
+    technologies: ["nextjs", "react", "tailwind"],
     hrefGitHub: "https://github.com/t-kupp/chas-media-db",
   },
   {
@@ -33,6 +55,7 @@ export const projectsData = [
     year: "2024",
     img: "weatherapp.png",
     hrefLive: "https://t-kupp.github.io/odin-weather-app/",
+    technologies: ["html", "css", "javascript"],
     hrefGitHub: "https://github.com/t-kupp/odin-weather-app",
   },
 ];

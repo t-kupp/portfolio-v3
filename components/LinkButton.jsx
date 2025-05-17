@@ -6,7 +6,7 @@ export default function LinkButton({ title, href, className }) {
       target="_blank"
       className={
         className +
-        " group bg-background text-foreground hover:bg-foreground hover:text-background border-border group flex items-center justify-between gap-2 border-b px-2 py-1 transition-[background-color,color,border-color] duration-500 hover:!duration-200"
+        " group text-foreground hover:bg-foreground hover:text-background border-border group flex items-center justify-between gap-2 border-b px-2 py-1 transition-[background-color,color,border-color] duration-500 hover:!duration-200"
       }
       href={href}
     >

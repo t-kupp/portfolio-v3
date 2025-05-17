@@ -15,7 +15,7 @@ export default function Header() {
         delay: 1.5,
         duration: 0.5,
       }}
-      className={`bg-background/70 border-border/40 sticky top-0 z-50 grid w-full translate-y-0 grid-cols-2 items-center justify-between border-b px-4 py-1 backdrop-blur-lg transition-all duration-500 sm:px-8`}
+      className={`bg-background/60 border-border/60 sticky top-0 z-50 grid w-full translate-y-0 grid-cols-2 items-center justify-between border-b px-4 py-1 backdrop-blur-md transition-all duration-500 sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
         <ThemeToggleButton />
