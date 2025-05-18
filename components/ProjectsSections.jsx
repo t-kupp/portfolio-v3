@@ -58,7 +58,7 @@ function ProjectCard({ project, alignment, comingSoon }) {
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
       viewport={{ once: true }}
       className="flex flex-col justify-between md:flex-row md:gap-8"
     >
