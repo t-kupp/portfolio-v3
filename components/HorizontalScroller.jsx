@@ -3,7 +3,7 @@ import SectionHeadline from "./SectionHeadline";
 
 export default function HorizontalScroller() {
   // Change displayed text here
-  let text = "Fullstack Developer.";
+  let text = "Frontend Developer.";
 
   text = text.split("").map((letter, index) => (
     <span

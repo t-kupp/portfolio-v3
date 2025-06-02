@@ -35,9 +35,7 @@ export default function ProjectsSection() {
 
 function ProjectCard({ project, alignment, comingSoon }) {
   const { theme } = useTheme();
-  const [imgSrc, setImgSrc] = useState(
-    theme === "dark" ? `/images/${project.img}` : `/images/dark_${project.img}`,
-  );
+  const [imgSrc, setImgSrc] = useState(`/images/${project.img}`);
 
   useEffect(() => {
     if (theme === "dark") {
