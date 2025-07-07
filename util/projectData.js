@@ -1,8 +1,8 @@
 export const projectsData = [
   {
-    title: "Ansökningshjälpen",
+    title: "Ansökshjälpen",
     description:
-      "An AI-powered tool developed in cooperation with Lidol, a Gothenburg-based organization focused on accessible communication systems. It is designed to assist people with disabilities in navigating the application process for workplace accommodations (arbetshjälpmedel) through Försäkringskassan. The solution provides step-by-step guidance for accurately completing application forms and supports applicants in preparing for interviews with Försäkringskassan representatives. The goal is to reduce rejection rates by offering clear and accessible support throughout the process.",
+      "An AI-powered tool developed through a collaborative effort with Lidol, a Gothenburg-based organization specializing in accessible communication systems. Our team created this solution to assist people with disabilities in navigating Försäkringskassan's workplace accommodation (arbetshjälpmedel) application process. The tool delivers step-by-step guidance for completing application forms accurately and helps applicants prepare for interviews with Försäkringskassan representatives. Our objective is to reduce rejection rates by providing clear, accessible support throughout the entire process.",
     year: "2025",
     img: "lidol.png",
     hrefLive: "",

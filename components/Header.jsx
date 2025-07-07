@@ -1,10 +1,11 @@
 "use client";
 
-import "react-clock/dist/Clock.css";
+import { MapPin } from "lucide-react";
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
+import "react-clock/dist/Clock.css";
 import { useTheme } from "../context/ThemeContext";
-import { motion } from "motion/react";
 
 export default function Header() {
   return (
@@ -72,6 +73,7 @@ function AnalogClock() {
 
   return (
     <div className="flex items-center">
+      <MapPin className="mr-1" size={"1rem"} />
       <p className="!font-neueMontreal w-[9rem] !text-[1rem]">
         Stockholm, {getStockholmTime(value)}
       </p>
