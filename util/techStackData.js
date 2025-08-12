@@ -16,6 +16,11 @@ export const techStackData = {
       name: "Tailwind",
       deviconName: "devicon-tailwindcss-original",
     },
+    {
+      name: "GSAP",
+      deviconName: "",
+      alt: "/images/tech/gsap.png",
+    },
   ],
 
   backend: [
@@ -38,9 +43,9 @@ export const techStackData = {
       name: "JavaScript (ES6+)",
       deviconName: "devicon-javascript-plain",
     },
-    // {
-    //   name: "TypeScript",
-    //   deviconName: "devicon-typescript-plain",
-    // },
+    {
+      name: "TypeScript",
+      deviconName: "devicon-typescript-plain",
+    },
   ],
 };

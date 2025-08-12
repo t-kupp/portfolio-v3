@@ -1,19 +1,14 @@
 import { techStackData } from "@/util/techStackData";
-import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 
 export default function TechStack() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div
-      className={`${isOpen ? "max-h-[13rem]" : "max-h-[4rem]"} overflow-hidden py-3 transition-[max-height] duration-500`}
-    >
+    <div className={`py-3`}>
       <p
-        onClick={() => setIsOpen(!isOpen)}
         className="flex cursor-pointer items-center justify-between py-1"
         role="button"
       >
-        Technologies I work with <span>{isOpen ? <Minus /> : <Plus />}</span>
+        Technologies I work with
       </p>
       <div className="mt-3 mb-3">
         <div className="grid grid-cols-3 gap-1">
@@ -24,7 +19,19 @@ export default function TechStack() {
                 className="text-foreground-muted flex items-center gap-1"
                 key={index}
               >
-                <i className={item.deviconName + " !text-[1rem]"}></i>
+                {item.deviconName ? (
+                  <i className={item.deviconName + " !text-[1rem]"}></i>
+                ) : (
+                  <div className="aspect-square w-[1rem] opacity-75 mix-blend-difference grayscale invert">
+                    <Image
+                      className="h-full w-full"
+                      width={128}
+                      height={128}
+                      src={item.alt}
+                      alt=""
+                    />
+                  </div>
+                )}
                 <p className="!text-[1rem]">{item.name}</p>
               </div>
             ))}
@@ -43,7 +50,6 @@ export default function TechStack() {
             ))}
           </div>
           <div>
-            {" "}
             <p className="mb-1 !text-[1rem] font-medium">Languages:</p>
             {techStackData.languages.map((item, index) => (
               <div
