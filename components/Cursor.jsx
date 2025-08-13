@@ -1,20 +1,18 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef, useState } from "react";
 
 export default function Cursor() {
-  const [mouse, setMouse] = useState({ x: -50, y: -50 });
   const [isHoveringClickable, setIsHoveringClickable] = useState(false);
-  const lastMousePosRef = useRef({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
 
   // Clickable detection
-  const isClickable = (elements) => {
+  function isClickable(elements) {
     const interactiveSelectors = [
       "a[href]",
       "button",
-      "input",
-      "textarea",
       "select",
-      "label",
       '[role="button"]',
       "[onclick]",
       '[style*="cursor: pointer"]',
@@ -25,46 +23,48 @@ export default function Cursor() {
         return element.matches(selector);
       });
     });
-  };
+  }
 
-  // Check elements under current mouse position
-  const checkHoverState = () => {
-    const elements = document.elementsFromPoint(
-      lastMousePosRef.current.x,
-      lastMousePosRef.current.y,
-    );
-    setIsHoveringClickable(isClickable(elements));
-  };
+  useGSAP(() => {
+    function handleMouseMove(e) {
+      let offsetY = 11;
 
-  // Mouse move handler
-  useEffect(() => {
-    const updateMousePosition = (e) => {
-      const newPos = { x: e.clientX, y: e.clientY };
-      setMouse(newPos);
-      lastMousePosRef.current = newPos;
-      checkHoverState();
+      const targetElements = document.elementsFromPoint(e.clientX, e.clientY);
+
+      const targetIsClickable = isClickable(targetElements);
+      setIsHoveringClickable(targetIsClickable);
+
+      if (targetIsClickable) {
+        offsetY = 0;
+      }
+
+      moveMouseX(e.clientX);
+      moveMouseY(e.clientY - offsetY);
+    }
+
+    const moveMouseX = gsap.quickTo(cursorRef.current, "left", {
+      duration: 0.2,
+      ease: "power1",
+    });
+
+    const moveMouseY = gsap.quickTo(cursorRef.current, "top", {
+      duration: 0.2,
+      ease: "power1",
+    });
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
     };
-
-    window.addEventListener("mousemove", updateMousePosition);
-    return () => window.removeEventListener("mousemove", updateMousePosition);
-  }, []);
-
-  // Scroll handler
-  useEffect(() => {
-    const handleScroll = () => {
-      checkHoverState();
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  });
 
   return (
     <div
-      style={{
-        transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0px)`,
-      }}
-      className={`${isHoveringClickable ? "customCursor h-6 w-6 outline-offset-0" : "h-2 w-2 outline-offset-4"} pointer-events-none fixed top-0 left-0 z-[9999] hidden -translate-1/2 rounded-full bg-white mix-blend-difference outline outline-white transition-[width,height,background-color,outline-offset,outline-color] duration-200 md:block`}
+      ref={cursorRef}
+      className={`${isHoveringClickable ? "h-0 w-0" : "h-2 w-2"} pointer-events-none fixed top-0 left-0 z-[9999] hidden -translate-x-2 rounded-full bg-white mix-blend-difference transition-[width,height] duration-200 md:block`}
     />
   );
 }

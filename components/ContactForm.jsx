@@ -77,7 +77,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="bg-foreground text-background border-border mt-4 self-start border px-2 py-1 transition-[background-color,color,border-color] duration-500 hover:!duration-200 active:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
+        className="bg-background text-foreground border-border hover:text-background hover:bg-foreground mt-4 cursor-pointer self-start border px-2 py-1 transition-[background-color,color,border-color] duration-500 hover:!duration-200 active:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isSubmitting ? (
           <p className="flex items-center gap-4">

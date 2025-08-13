@@ -4,10 +4,7 @@ import Image from "next/image";
 export default function TechStack() {
   return (
     <div className={`py-3`}>
-      <p
-        className="flex cursor-pointer items-center justify-between py-1"
-        role="button"
-      >
+      <p className="flex items-center justify-between py-1">
         Technologies I work with
       </p>
       <div className="mt-3 mb-3">

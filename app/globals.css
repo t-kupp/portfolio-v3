@@ -87,11 +87,11 @@ body {
 
 /* Custom cursor settings */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   * {
     cursor: none !important;
   }
-}
+} */
 
 /* Style for react-clock  */
 .react-clock__hour-hand__body,
