@@ -2,7 +2,6 @@
 
 import Divider from "./Divider";
 import SectionHeadline from "./SectionHeadline";
-import TechStack from "./TechStack";
 
 export default function AboutSection() {
   return (
@@ -20,9 +19,6 @@ export default function AboutSection() {
           Synthetic Theater. Working toward specializing in creative web
           development and interactive design.
         </h4>
-        <Divider />
-        <TechStack />
-        <Divider />
       </div>
     </div>
   );

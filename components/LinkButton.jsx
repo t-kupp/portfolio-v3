@@ -3,15 +3,24 @@ import { ArrowRight } from "lucide-react";
 export default function LinkButton({ title, href, className }) {
   return (
     <a
-      target="_blank"
+      href={href}
       className={
         className +
-        " group text-foreground hover:bg-foreground hover:text-background border-border group flex items-center justify-between gap-2 border-b px-3 py-1 transition-[background-color,color,border-color] duration-500 hover:!duration-200"
+        " group border-border relative gap-x-2 overflow-hidden border-b px-3 py-1"
       }
-      href={href}
     >
-      <p>{title}</p>
-      <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
+      <div className="bg-foreground absolute bottom-0 left-1/2 h-0 w-0 -translate-x-1/2 transition-[height,width] duration-200 ease-in-out group-hover:h-full group-hover:w-full"></div>
+      <div
+        className={
+          (href ? "text-white" : "text-white/50") +
+          " flex items-center justify-between gap-x-2 transition-colors"
+        }
+      >
+        <p className="mix-blend-difference">{title}</p>
+        {href && (
+          <ArrowRight className="mix-blend-difference transition-transform group-hover:translate-x-2" />
+        )}
+      </div>
     </a>
   );
 }

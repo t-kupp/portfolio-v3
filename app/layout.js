@@ -1,11 +1,10 @@
-import { Analytics } from "@vercel/analytics/next";
+import Cursor from "@/components/Cursor";
 import Header from "@/components/Header";
+import LoadingScreen from "@/components/LoadingScreen";
+import { Analytics } from "@vercel/analytics/next";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import { Providers } from "./providers";
-import Footer from "@/components/Footer";
-import Cursor from "@/components/Cursor";
-import LoadingScreen from "@/components/LoadingScreen";
-import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "",

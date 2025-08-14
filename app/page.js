@@ -2,28 +2,16 @@
 
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
-import DotPlain from "@/components/DotPlain";
 import HeroSection from "@/components/HeroSection";
-import HorizontalScroller from "@/components/HorizontalScroller";
 import ProjectsSection from "@/components/ProjectsSections";
-import { motion } from "motion/react";
+import TechnologySection from "@/components/TechnologySection";
 
 export default function Home() {
   return (
-    <div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          delay: 2.5,
-          duration: 0.6,
-        }}
-      >
-        {/* <DotPlain /> */}
-      </motion.div>
+    <div id="main" className="hidden">
       <HeroSection />
-      <HorizontalScroller />
       <AboutSection />
+      <TechnologySection />
       <ProjectsSection />
       <ContactSection />
     </div>

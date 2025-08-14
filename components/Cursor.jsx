@@ -27,7 +27,7 @@ export default function Cursor() {
 
   useGSAP(() => {
     function handleMouseMove(e) {
-      let offsetY = 11;
+      let offsetY = 13;
 
       const targetElements = document.elementsFromPoint(e.clientX, e.clientY);
 
@@ -62,7 +62,7 @@ export default function Cursor() {
   return (
     <div
       ref={cursorRef}
-      className={`${isHoveringClickable ? "h-0 w-0" : "h-2 w-2"} pointer-events-none fixed top-0 left-0 z-[9999] hidden -translate-x-2 rounded-full bg-white mix-blend-difference transition-[width,height] duration-200 md:block`}
+      className={`${isHoveringClickable ? "h-0 w-0" : "h-2 w-2"} pointer-events-none fixed top-0 left-0 z-[9999] hidden -translate-x-2.5 rounded-full bg-white mix-blend-difference transition-[width,height] duration-200 md:block`}
     />
   );
 }

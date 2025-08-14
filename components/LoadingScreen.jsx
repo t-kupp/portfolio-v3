@@ -1,61 +1,83 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef, useState } from "react";
 
 export default function LoadingScreen() {
-  // Robust solution to prevent scrolling during loading screen
-  // Extensive code needed to work with smooth-scroll library
-  useEffect(() => {
-    // Store original body styles
-    const originalStyle = window.getComputedStyle(document.body);
-    const originalOverflow = originalStyle.overflow;
-    const originalPosition = originalStyle.position;
-    const originalWidth = originalStyle.width;
-    const originalTop = originalStyle.top;
-    const originalScrollY = window.scrollY;
+  const [progress, setProgress] = useState(0);
+  const loadingScreen = useRef(null);
+  const progressRef = useRef(null);
+  const leftLine = useRef(null);
+  const rightLine = useRef(null);
+  const topHalf = useRef(null);
+  const bottomHalf = useRef(null);
 
-    // Disable scrolling when component mounts
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${originalScrollY}px`;
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      onComplete: () => {
+        const main = document.getElementById("main");
+        main.classList.remove("hidden");
+        loadingScreen.current.classList.add("hidden");
+      },
+    });
 
-    // Enable scrolling after animation completes
-    const timer = setTimeout(() => {
-      document.body.style.overflow = originalOverflow;
-      document.body.style.position = originalPosition;
-      document.body.style.top = originalTop;
+    const lines = gsap.to([leftLine.current, rightLine.current], {
+      scaleX: 1,
+      ease: "power2.out",
+      duration: 3,
+      onUpdate: () => {
+        const easedProgress = gsap.parseEase("power2.out")(lines.progress());
+        setProgress(Math.round(easedProgress * 100));
+      },
+    });
+    tl.add(lines);
+    tl.to(
+      [leftLine.current, rightLine.current, progressRef.current],
+      { opacity: 0, duration: 0.25, filter: "blur(3px)" },
+      ">",
+    );
 
-      // Restore scroll position
-      window.scrollTo(0, originalScrollY);
-    }, 2200);
+    tl.to(
+      topHalf.current,
+      { yPercent: -100, ease: "expo.in", duration: 0.5 },
+      "<",
+    );
 
-    // Cleanup function
-    return () => {
-      clearTimeout(timer);
-      document.body.style.overflow = originalOverflow;
-      document.body.style.position = originalPosition;
-      document.body.style.top = originalTop;
-      window.scrollTo(0, originalScrollY);
-    };
-  }, []);
+    tl.to(
+      bottomHalf.current,
+      { yPercent: 100, ease: "expo.in", duration: 0.5 },
+      "<",
+    );
+  });
 
   return (
-    <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: "-100%" }}
-      transition={{ delay: 1.4, duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 z-[100] flex h-screen w-screen flex-col items-center justify-center bg-black text-white"
+    <div
+      ref={loadingScreen}
+      className="fixed top-0 left-0 z-[9999] h-screen w-screen"
     >
-      <h4 className="mb-1">Jan-Thorge Kupper</h4>
-      <p className="text-gray-400">// Portfolio</p>
-
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: "-100%" }}
-        transition={{ delay: 1, duration: 0.5, ease: "easeInOut" }}
-        className="fixed top-[100vh] left-0 h-screen w-screen border-b border-black bg-white mix-blend-difference"
-      />
-    </motion.div>
+      <div ref={topHalf} className="h-1/2 w-full bg-black"></div>
+      <div className="absolute top-1/2 flex w-full -translate-y-1/2 items-center gap-4">
+        <div className="w-full">
+          <div
+            ref={leftLine}
+            className="h-[2px] origin-right scale-x-0 bg-white"
+          ></div>
+        </div>
+        <p
+          ref={progressRef}
+          className="font-neueMontreal-mono !text-7xl text-white"
+        >
+          {progress}
+        </p>
+        <div className="w-full">
+          <div
+            ref={rightLine}
+            className="h-[2px] origin-left scale-x-0 bg-white"
+          ></div>
+        </div>
+      </div>
+      <div ref={bottomHalf} className="h-1/2 w-full bg-black"></div>
+    </div>
   );
 }

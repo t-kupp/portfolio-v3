@@ -1,13 +1,13 @@
 "use client";
 
-import Divider from "./Divider";
-import SectionHeadline from "./SectionHeadline";
-import { projectsData } from "@/util/projectData";
-import LinkButton from "./LinkButton";
-import { motion } from "motion/react";
 import { useTheme } from "@/context/ThemeContext";
-import { useState, useEffect } from "react";
+import { projectsData } from "@/util/projectData";
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import Divider from "./Divider";
+import LinkButton from "./LinkButton";
 import ProjectBadges from "./ProjectBadges";
+import SectionHeadline from "./SectionHeadline";
 
 export default function ProjectsSection() {
   return (
@@ -83,7 +83,7 @@ function ProjectCard({ project, alignment, comingSoon }) {
               href={""}
               title={"Coming soon..."}
               className={
-                "pointer-events-none w-full cursor-not-allowed text-nowrap opacity-50"
+                "pointer-events-none w-full cursor-not-allowed text-nowrap"
               }
             />
           ) : (

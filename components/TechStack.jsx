@@ -4,22 +4,20 @@ import Image from "next/image";
 export default function TechStack() {
   return (
     <div className={`py-3`}>
-      <p className="flex items-center justify-between py-1">
-        Technologies I work with
-      </p>
       <div className="mt-3 mb-3">
-        <div className="grid grid-cols-3 gap-1">
-          <div>
-            <p className="mb-1 !text-[1rem] font-medium">Frontend:</p>
+        <div className="grid grid-cols-2 gap-x-1 gap-y-10 lg:grid-cols-3">
+          {/* Frontend  */}
+          <div className="flex flex-col gap-1">
+            <h4 className="mb-4">Frontend</h4>
             {techStackData.frontend.map((item, index) => (
               <div
-                className="text-foreground-muted flex items-center gap-1"
+                className="text-foreground-muted flex items-center gap-2"
                 key={index}
               >
                 {item.deviconName ? (
-                  <i className={item.deviconName + " !text-[1rem]"}></i>
+                  <i className={item.deviconName + " !text-[1.25rem]"}></i>
                 ) : (
-                  <div className="aspect-square w-[1rem] opacity-75 mix-blend-difference grayscale invert">
+                  <div className="aspect-square w-[1.25rem] opacity-75 mix-blend-difference grayscale invert">
                     <Image
                       className="h-full w-full"
                       width={128}
@@ -29,32 +27,34 @@ export default function TechStack() {
                     />
                   </div>
                 )}
-                <p className="!text-[1rem]">{item.name}</p>
+                <p className="!text-[1.25rem]">{item.name}</p>
               </div>
             ))}
           </div>
-          <div>
-            <p className="mb-1 !text-[1rem] font-medium">Backend:</p>
+          {/* Backend  */}
+          <div className="flex flex-col gap-1">
+            <h4 className="mb-4">Backend</h4>
 
             {techStackData.backend.map((item, index) => (
               <div
                 className="text-foreground-muted flex items-center gap-1"
                 key={index}
               >
-                <i className={item.deviconName + " !text-[1rem]"}></i>
-                <p className="!text-[1rem]">{item.name}</p>
+                <i className={item.deviconName + " !text-[1.25rem]"}></i>
+                <p className="!text-[1.25rem]">{item.name}</p>
               </div>
             ))}
           </div>
-          <div>
-            <p className="mb-1 !text-[1rem] font-medium">Languages:</p>
+          {/* Languages  */}
+          <div className="flex flex-col gap-1">
+            <h4 className="mb-4">Languages</h4>
             {techStackData.languages.map((item, index) => (
               <div
                 className="text-foreground-muted flex items-center gap-1"
                 key={index}
               >
-                <i className={item.deviconName + " !text-[1rem]"}></i>
-                <p className="!text-[1rem]">{item.name}</p>
+                <i className={item.deviconName + " !text-[1.25rem]"}></i>
+                <p className="!text-[1.25rem]">{item.name}</p>
               </div>
             ))}
           </div>
