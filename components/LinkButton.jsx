@@ -4,6 +4,7 @@ export default function LinkButton({ title, href, className }) {
   return (
     <a
       href={href}
+      target="_blank"
       className={
         className +
         " group border-border relative gap-x-2 overflow-hidden border-b px-3 py-1"
