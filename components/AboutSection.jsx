@@ -11,8 +11,8 @@ export default function AboutSection() {
       <div className="w-full self-end sm:w-2/3">
         <h4 className="pb-12">
           Frontend developer student based in Stockholm, originally from
-          Germany. I check Awwwards Site of the Day daily and love when a design
-          just works perfectly.
+          Germany. I check Awwwards Site of the Day daily to study modern design
+          practices.
           <br />
           <br />
           Currently learning GSAP by recreating award-winning websites like
