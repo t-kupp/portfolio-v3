@@ -7,7 +7,7 @@ export default function LinkButton({ title, href, className }) {
       target="_blank"
       className={
         className +
-        " group border-border relative gap-x-2 overflow-hidden border-b px-3 py-1"
+        " group border-border relative gap-x-2 overflow-hidden rounded-full border-b px-3 py-1"
       }
     >
       <div className="bg-foreground absolute bottom-0 left-1/2 h-0 w-0 -translate-x-1/2 transition-[height,width] duration-200 ease-in-out group-hover:h-full group-hover:w-full"></div>
