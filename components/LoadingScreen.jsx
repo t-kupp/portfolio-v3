@@ -54,7 +54,7 @@ export default function LoadingScreen() {
   return (
     <div
       ref={loadingScreen}
-      className="fixed top-0 left-0 z-[9999] h-screen w-screen"
+      className="fixed top-0 left-0 z-[9999] h-[100svh] w-screen"
     >
       <div ref={topHalf} className="h-1/2 w-full bg-black"></div>
       <div className="absolute top-1/2 flex w-full -translate-y-1/2 items-center gap-4">

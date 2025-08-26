@@ -54,15 +54,15 @@ export default function LandingGeometry() {
   });
 
   return (
-    <div className="relative flex h-full w-full items-center justify-center">
+    <div className="relative z-[-1] flex h-full w-full items-center justify-center">
       {[...Array(SHAPE_COUNT)].map((shape, i) => {
         return (
           <div
             key={i}
             ref={(el) => (shapesRef.current[i] = el)}
             style={{
-              width: `calc(min(80vw, 80vh) - max(1vw, 2vh) * ${SHAPE_COUNT + i})`,
-              height: `calc(min(80vw, 80vh) - max(1vw, 2vh) * ${SHAPE_COUNT + i})`,
+              width: `calc(max(80vw, 80vh) - max(1vw, 2vh) * ${SHAPE_COUNT + i})`,
+              height: `calc(max(80vw, 80vh) - max(1vw, 2vh) * ${SHAPE_COUNT + i})`,
               backgroundColor:
                 i % 2 === 0 ? "var(--foreground)" : "var(--background)",
             }}

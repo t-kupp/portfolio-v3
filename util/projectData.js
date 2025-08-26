@@ -1,5 +1,16 @@
 export const projectsData = [
   {
+    title: "Neural Canvas",
+    description:
+      "Recreation of Daniele Buffa's Awwwards-winning Synthetic Theatre. Reverse-engineering the complex animations and design systems taught me more about GSAP and modern web design than any tutorial could. Built with Next.js and TypeScript - my first TypeScript project.",
+    year: "2025",
+    img: "neural-canvas.png",
+    hrefLive: "https://synthetic-theater-recreation.vercel.app/",
+    technologies: ["typescript", "nextjs", "react", "tailwind", "GSAP"],
+    hrefGitHub: "https://github.com/t-kupp/synthetic-theater-recreation",
+    comingSoon: false,
+  },
+  {
     title: "Ansökshjälpen",
     description:
       "An AI-powered tool developed through a collaborative effort with Lidol, a Gothenburg-based organization specializing in accessible communication systems. Our team created this solution to assist people with disabilities in navigating Försäkringskassan's workplace accommodation (arbetshjälpmedel) application process. The tool delivers step-by-step guidance for completing application forms accurately and helps applicants prepare for interviews with Försäkringskassan representatives. Our objective is to reduce rejection rates by providing clear, accessible support throughout the entire process.",

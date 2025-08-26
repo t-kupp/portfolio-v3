@@ -19,7 +19,7 @@ export default function ProjectsSection() {
         href={"https://github.com/t-kupp/portfolio-v3"}
         className={"border-foreground-muted mx-auto my-32 mt-16 border"}
       />
-      <div className="flex flex-col gap-16 md:gap-32">
+      <div className="flex flex-col gap-48 md:gap-64">
         {projectsData.map((project, index) => (
           <ProjectCard
             key={index}

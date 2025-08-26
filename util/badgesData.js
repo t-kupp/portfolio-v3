@@ -41,4 +41,11 @@ export const badges = {
   "gpt-4.1": {
     name: "GPT-4.1",
   },
+  typescript: {
+    name: "TypeScript",
+    icon: `<i class="devicon-typescript-plain colored"></i>`,
+  },
+  GSAP: {
+    name: "GSAP",
+  },
 };
