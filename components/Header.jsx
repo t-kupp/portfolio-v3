@@ -1,7 +1,6 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import Clock from "react-clock";
 import "react-clock/dist/Clock.css";
@@ -9,14 +8,8 @@ import { useTheme } from "../context/ThemeContext";
 
 export default function Header() {
   return (
-    <motion.div
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{
-        delay: 1.5,
-        duration: 0.5,
-      }}
-      className={`bg-background/60 border-border/60 sticky top-0 z-50 grid w-full translate-y-0 grid-cols-2 items-center justify-between border-b px-4 py-1 backdrop-blur-md transition-all duration-500 sm:px-8`}
+    <div
+      className={`bg-background/60 border-border/60 fixed top-0 z-50 grid w-full grid-cols-2 items-center justify-between border-b px-4 py-1 backdrop-blur-md sm:px-8`}
     >
       <div className="mr-auto flex items-center gap-4">
         <ThemeToggleButton />
@@ -25,7 +18,7 @@ export default function Header() {
       <div className="ml-auto">
         <AnalogClock />
       </div>
-    </motion.div>
+    </div>
   );
 }
 
